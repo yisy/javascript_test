@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function(){
+            //alert(document.getElementById("oul").childNodes.length);//包含文本和元素类型结点
+           var oul = document.getElementById("u");
+           console.log(oul.childNodes[1].nodeType);
+            /*元素节点：1，属性节点：2，文本节点：3*/
+
+            for(var i = 0; i < oul.childNodes.length;i++){
+                console.log(oul.childNodes[i].nodeType);
+                if (oul.childNodes[i].nodeType == 1){
+                    oul.childNodes[i].style.background = "red";
+                    /*childNodes只包含一级子节点*/
+                }
+            } //alert(document.getElementById("oul").childNodes.length);//包含文本和元素类型结点
+
+           console.log("children的个数"+oul.children.length);
+        }
+    </script>
+</head>
+<body>
+     <ul id="u" style="border: 1px solid;">
+         <li>11</li>
+         <li>你好</li>
+         <li>33</li>
+         <p>fd</p>
+     </ul>
+</body>
+</html>
