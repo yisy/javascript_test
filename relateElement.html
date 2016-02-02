@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+
+    window.onload = function () {
+        var ud = document.getElementById("u");
+        console.log("ud的第一个孩子" + ud.firstChild);
+        /*firstChild只读
+         标准下会包含文本类型节点
+         firstElementChild标准下第一个元素类型节点*/
+
+        console.log("元素类型节点" + ud.firstElementChild);
+        ud.firstElementChild.style.background = "blue"
+
+        /*元素.nextSibling 和元素.nextElementSibling*/
+        var firstE = ud.firstElementChild;
+
+        firstE.nextElementSibling.style.background = "yellow";
+        //错误：
+       console.log("第一个节点的下一个节点"+ firstE.nextSibling);
+
+        var lastE = ud.lastElementChild;
+        lastE.previousElementSibling.style.background = "black";
+        //error
+       console.log("last element`s previous element"+lastE.previousSibling);
+    }
+</script>
+<body>
+<ul id="u" style="list-style: none">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+</body>
+</html>
