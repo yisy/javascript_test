@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function(){
+          var formId =  document.getElementById("form1");
+            console.log(formId.id1.value);/*通过这种方式来获得表单中的数据*/
+
+          formId.id1.onchange = function(){
+              console.log('change');
+          }
+
+           formId.sex[0].onchange = function(){
+               console.log("sex change");
+           }
+
+            console.log(formId.city.value); /*不必具体到某一个option*/
+
+            formId.city.onchange = function(){
+                console.log('city change');
+            }
+
+            console.log(formId.sex[0].checked);
+
+
+            formId.onsubmit = function(){
+                if(this.id1.value == ''){
+                    alert('请填写');
+                    return false;
+                }
+            }
+           /* /!*表单自动提交*!/
+             setTimeout(function(){
+             formId.submit()
+             },10)*/
+
+
+            /*重置*/
+            formId.onreset = function(){
+                return confirm('你确定重置？');
+            }
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <form id="form1" action="https://www.baidu.com">
+        <input type="text" name="id1" id="text" value="jj">  <!--没有name数据无法提交-->
+        <input type="radio" name="sex" value="male" checked> 男
+        <input type="radio" name="sex" value="female" >女
+
+
+        <select name="city" value="">
+            <option>请选择城市</option>
+            <option value="beijing">北京</option>
+            <option value="shanghai" selected>上海</option>
+        </select>
+
+        <input type="submit" name="onsubmit" value="提交">
+        <input type="reset" name="onreset" value="重置">
+
+    </form>
+</body>
+</html>
